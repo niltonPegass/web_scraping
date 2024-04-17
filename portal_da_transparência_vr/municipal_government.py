@@ -7,6 +7,7 @@ import time
 import requests
 import pandas as pd
 
+# caminho_string = r'P:\Comercial\Estudo Conveniência'
 inicio = str(input("informe a data inicial [dd/mm/aaaa]: "))
 final = str(input("informe a data final [dd/mm/aaaa]: "))
 intervalo_requisicoes = int(input("informe o intervalo entre as requisições [seg]: "))
@@ -81,7 +82,23 @@ if dados_totais:
     root = tk.Tk()
     root.withdraw()  # Esconde a janela principal
     pasta_destino = filedialog.askdirectory(title="Selecione a pasta para salvar os dados")
+    # pasta_destino = os.path.join('I:\\', 'Nilton', 'tech studies', 'DIO')
+
+    # def criar_caminho_pasta(caminho_string):
+    #     # Dividindo o caminho em partes
+    #     partes = caminho_string.split(os.sep)
+    #     identificador_disco = partes[0] + '\\'
+
+    #     # Contando o número de partes
+    #     num_pastas = len(partes)
+        
+    #     # Construindo o caminho usando os.path.join()
+    #     pasta_destino = os.path.join(identificador_disco, *partes)
     
+    #     return num_pastas, pasta_destino
+
+    # pasta_destino = criar_caminho_pasta(caminho_string)
+
     if pasta_destino:  # Se um diretório foi selecionado
         for mes_ano, df_mes in df.groupby(df['Data'].apply(lambda x: datetime.strptime(x, '%d/%m/%Y').strftime('%Y.%m'))):
             # Criando o nome do arquivo com base no mês e ano
