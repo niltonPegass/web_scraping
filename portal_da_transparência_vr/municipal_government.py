@@ -25,15 +25,15 @@ def extrair_dados(html):
     dados = []
     for linha in linhas[1:]:  # ignora o cabeçalho
         colunas = linha.find_all('td')
-        matricula = colunas[0].text.strip()
-        nome = colunas[1].text.strip()
-        cargo = colunas[2].text.strip()
-        empresa = colunas[3].text.strip()
-        data = colunas[4].text.strip()
-        destino = colunas[5].text.strip()
-        motivo = colunas[6].text.strip()
-        diarias = colunas[7].text.strip()
-        valor = colunas[8].text.strip()
+        matricula = colunas[1].text.strip()
+        nome = colunas[2].text.strip()
+        cargo = colunas[3].text.strip()
+        empresa = colunas[4].text.strip()
+        data = colunas[5].text.strip()
+        destino = colunas[6].text.strip()
+        motivo = colunas[7].text.strip()
+        diarias = colunas[8].text.strip()
+        valor = colunas[9].text.strip()
         dados.append((matricula, nome, cargo, empresa, data, destino, motivo, diarias, valor))
     
     return dados
